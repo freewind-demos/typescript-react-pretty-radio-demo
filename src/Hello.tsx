@@ -1,12 +1,11 @@
 import React, { FC, useState } from 'react';
-import './Hello.pcss';
-import { PrettyRadio } from './components/PrettyRadio';
+import { PrettyRadio } from './PrettyRadio';
 
 type Props = {};
 
 export const Hello: FC<Props> = ({ }) => {
   const [selected, setSelected] = useState<string | null>(null);
-  
+
   const handleChange = (option: string) => {
     if (selected === option) {
       setSelected(null);
@@ -18,16 +17,23 @@ export const Hello: FC<Props> = ({ }) => {
   return <div className={'Hello'}>
     <h1>Hello Radio</h1>
     <div style={{ display: 'flex', gap: '16px' }}>
-      <PrettyRadio 
-        label="Yes"
-        checked={selected === 'yes'}
-        onChange={() => handleChange('yes')}
-      />
-      <PrettyRadio
-        label="No" 
-        checked={selected === 'no'}
-        onChange={() => handleChange('no')}
-      />
+      <label>
+        <PrettyRadio
+          name="aa"
+          checked={selected === 'yes'}
+          onChange={() => handleChange('yes')}
+        />
+        Yes
+      </label>
+
+      <label>
+        <PrettyRadio
+          name="aa"
+          checked={selected === 'no'}
+          onChange={() => handleChange('no')}
+        />
+        No
+      </label>
     </div>
   </div>;
 };
